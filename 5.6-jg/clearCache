@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf /repositories/fo-site/app/cache/prod/
+rm -rf /repositories/fo-site/app/cache/dev
+rm -rf /repositories/fo-site/app/config/configuration.yml

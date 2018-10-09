@@ -1,0 +1,13 @@
+{
+    "name": "galek/multiple-php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Galek",
+            "email": "jan.galek@troia-studio.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

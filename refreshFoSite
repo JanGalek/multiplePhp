@@ -1,0 +1,7 @@
+#!/bin/bash
+foSite="repositories/fo-site"
+
+sudo ./clearCache ${USER}
+sudo docker-compose kill
+sudo docker-compose up --build -d
+sudo docker exec -ti php56 /bin/bash -c "(cd /${foSite}; composer install)"

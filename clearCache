@@ -1,0 +1,7 @@
+#!/bin/bash
+foSite="repositories/fo-site"
+userDir=/home/$1
+
+sudo rm -rf ${userDir}/${foSite}/app/cache/prod
+sudo rm -rf ${userDir}/${foSite}/app/cache/dev
+sudo rm -rf ${userDir}/${foSite}/app/config/configuration.yml

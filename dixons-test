@@ -1,0 +1,11 @@
+#!/bin/bash
+repo=$1
+repoPath="repositories/$repo"
+testUnitPath=/${repoPath}/tests/unit
+bootstrap=/${repoPath}/vendor/autoload.php
+configuration=${testUnitPath}/phpunit.xml
+userDir=/home/${USER}
+
+sudo docker-compose kill
+sudo docker-compose up --build -d
+sudo docker exec -ti php56 /bin/bash -c "(cd /$repoPath && composer install);/$repoPath/vendor/bin/phpunit $testUnitPath --bootstrap $bootstrap --configuration $configuration"

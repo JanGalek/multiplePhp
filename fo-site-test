@@ -1,0 +1,11 @@
+#!/bin/bash
+foSite="repositories/fo-site"
+testUnitPath=/${foSite}/tests/unit
+bootstrap=${testUnitPath}/bootstrap.php
+configuration=${testUnitPath}/phpunit.xml
+
+sudo ./clearCache ${USER}
+sudo docker-compose kill
+sudo docker-compose up --build -d
+sudo docker exec -ti php56 /bin/bash -c "/bin/phpunit $testUnitPath --bootstrap $bootstrap --configuration $configuration"
+sudo ./clearCache ${USER}

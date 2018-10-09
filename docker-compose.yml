@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  php56:
+    build: ./5.6-jg
+    container_name: php56
+    volumes:
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./repositories:/repositories
+      - ./sites:/sites
+    ports:
+      - 9000:9000
+
+  php72:
+    build: ./7.2
+    container_name: php72
+    volumes:
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./repositories:/repositories
+      - ./sites:/sites
+    ports:
+      - 9001:9001
