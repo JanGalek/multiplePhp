@@ -24,6 +24,15 @@ allow scripts to run
 chmod +x scripts/*
 ```
 
+### PHP 
+- Copy docker-compose.yml.example to docker-compose.yml
+
+```bash
+cp docker-compose.yml.example docker-compose.yml
+```
+
+set your volumes, don't change target path 
+
 ## Variables
 
 ### REPOSITORY_DIR
@@ -35,3 +44,4 @@ Set your system, there is only one condition, LINUX or whatever
 ### RUN_SUDO
 For linux, set to `1` for enable or `0` to disable.
 Another systems it has disabled.
+

@@ -2,3 +2,4 @@
 repositories
 sites
 config.bash
+docker-compose.yml
