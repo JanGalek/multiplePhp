@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source config.bash
+source ../config.bash
 
 #------/\Setup/\------
 if [ "$SYSTEM" == "LINUX" ] && [ "$RUN_SUDO" -eq 1 ]; then
