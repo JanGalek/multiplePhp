@@ -1,0 +1,55 @@
+#!/bin/bash
+
+status=$1
+foSite="repositories/fo-site"
+webDir=${foSite}/web
+wwwDir=${foSite}/www
+htaccess=${wwwDir}/.htaccess
+htaccessProfiler=${wwwDir}/.htaccess.PD-1010
+htaccessOriginal=${wwwDir}/.htaccess.original
+appDevProfiler="resources/fo-site/app_dev.php"
+appDev=${webDir}/app_dev.php
+appDevOriginal=${appDev}.original
+webDevProfiler="resources/fo-site/web.php"
+webDev=${wwwDir}/web.php
+webDevOriginal=${webDev}.original
+
+
+# ___/\_Backup_/\___
+if [ ! -f "$appDevOriginal" ]; then
+sudo cp ${appDev} ${appDevOriginal}
+fi
+
+if [ ! -f "$htaccessOriginal" ]; then
+sudo cp ${htaccess} ${htaccessOriginal}
+fi
+
+if [ ! -f "$webDevOriginal" ]; then
+sudo cp ${webDev} ${webDevOriginal}
+fi
+
+echo "Switching"
+# ___/\Switch/\___
+if [ "$status" = "enable" ]; then
+	sudo cp ${appDevProfiler} ${appDev}
+	sudo cp ${htaccessProfiler} ${htaccess}
+	sudo cp ${webDevProfiler} ${webDev}
+elif [ "$status" = "disable" ]; then
+	sudo cp ${appDevOriginal} ${appDev}
+	sudo cp ${htaccessOriginal} ${htaccess}
+	sudo cp ${webDevOriginal} ${webDev}
+elif [ "$status" = "clear" ]; then
+	sudo rm ${webDevOriginal}
+	sudo rm ${htaccessOriginal}
+	sudo rm ${appDevOriginal}
+else
+	echo "Bad argument, use enable/disable or clear"
+fi
+
+echo "Clearing cache"
+./clearCache
+
+echo "as next step clear cache on your dev"
+echo "Please use this inside /web_dir/fo-currys"
+echo "- rm -rf app/cache/dev"
+echo "- rm -rf app/config/configuration.yml"

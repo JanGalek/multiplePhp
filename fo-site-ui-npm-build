@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo docker run -ti -v /home/jg/repositories:/repositories npm /bin/bash -c "(cd /repositories/fo-site-ui; npm install; node ./npm_scripts/css-build.js --sites currys --env dev)"
+
+#sudo docker run -ti -v ./repositories:/repositories npm /bin/bash -c "(cd /repositories/fo-site/ui; npm install; node ./npm_scripts/css-build.js --sites currys --env dev)"

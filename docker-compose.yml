@@ -9,7 +9,7 @@ services:
       - ./repositories:/repositories
       - ./sites:/sites
     ports:
-      - 9000:9000
+      - 9002:9000
 
   php72:
     build: ./7.2
@@ -20,3 +20,8 @@ services:
       - ./sites:/sites
     ports:
       - 9001:9001
+  npm:
+    build: ./npm
+    container_name: npm
+    volumes:
+    - ./repositories:/repositories
