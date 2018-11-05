@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#------/\Configuration/\------
+REPOSITORY_DIR='/home/jg/repositories'
+SYSTEM='LINUX'
+RUN_SUDO=1

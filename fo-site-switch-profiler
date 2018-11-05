@@ -1,7 +1,9 @@
 #!/bin/bash
 
+source setup.sh
+
 status=$1
-foSite="repositories/fo-site"
+foSite=$REPOSITORY_DIR/fo-site
 webDir=${foSite}/web
 wwwDir=${foSite}/www
 htaccess=${wwwDir}/.htaccess
@@ -17,31 +19,31 @@ webDevOriginal=${webDev}.original
 
 # ___/\_Backup_/\___
 if [ ! -f "$appDevOriginal" ]; then
-sudo cp ${appDev} ${appDevOriginal}
+${SUDO_COMMAND} cp ${appDev} ${appDevOriginal}
 fi
 
 if [ ! -f "$htaccessOriginal" ]; then
-sudo cp ${htaccess} ${htaccessOriginal}
+${SUDO_COMMAND} cp ${htaccess} ${htaccessOriginal}
 fi
 
 if [ ! -f "$webDevOriginal" ]; then
-sudo cp ${webDev} ${webDevOriginal}
+${SUDO_COMMAND} cp ${webDev} ${webDevOriginal}
 fi
 
 echo "Switching"
 # ___/\Switch/\___
 if [ "$status" = "enable" ]; then
-	sudo cp ${appDevProfiler} ${appDev}
-	sudo cp ${htaccessProfiler} ${htaccess}
-	sudo cp ${webDevProfiler} ${webDev}
+	${SUDO_COMMAND} cp ${appDevProfiler} ${appDev}
+	${SUDO_COMMAND} cp ${htaccessProfiler} ${htaccess}
+	${SUDO_COMMAND} cp ${webDevProfiler} ${webDev}
 elif [ "$status" = "disable" ]; then
-	sudo cp ${appDevOriginal} ${appDev}
-	sudo cp ${htaccessOriginal} ${htaccess}
-	sudo cp ${webDevOriginal} ${webDev}
+	${SUDO_COMMAND} cp ${appDevOriginal} ${appDev}
+	${SUDO_COMMAND} cp ${htaccessOriginal} ${htaccess}
+	${SUDO_COMMAND} cp ${webDevOriginal} ${webDev}
 elif [ "$status" = "clear" ]; then
-	sudo rm ${webDevOriginal}
-	sudo rm ${htaccessOriginal}
-	sudo rm ${appDevOriginal}
+	${SUDO_COMMAND} rm ${webDevOriginal}
+	${SUDO_COMMAND} rm ${htaccessOriginal}
+	${SUDO_COMMAND} rm ${appDevOriginal}
 else
 	echo "Bad argument, use enable/disable or clear"
 fi

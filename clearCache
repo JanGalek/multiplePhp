@@ -1,12 +1,14 @@
 #!/bin/bash
-foSite="repositories/fo-site"
-userDir=/home/$1
 
-echo "Removing $userDir/$foSite/app/cache/prod"
-sudo rm -rf ${userDir}/${foSite}/app/cache/prod
-echo "Removing $userDir/$foSite/app/cache/dev"
-sudo rm -rf ${userDir}/${foSite}/app/cache/dev
-echo "Removing $userDir/$foSite/app/cache/console"
-sudo rm -rf ${userDir}/${foSite}/app/cache/console
-echo "Removing $userDir/$foSite/app/config/configuration.yml"
-sudo rm -rf ${userDir}/${foSite}/app/config/configuration.yml
+source setup.sh
+
+foSite="fo-site"
+
+echo "Removing $REPOSITORY_DIR/$foSite/app/cache/prod"
+${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/cache/prod
+echo "Removing $REPOSITORY_DIR/$foSite/app/cache/dev"
+${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/cache/dev
+echo "Removing $REPOSITORY_DIR/$foSite/app/cache/console"
+${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/cache/console
+echo "Removing $REPOSITORY_DIR/$foSite/app/config/configuration.yml"
+${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/config/configuration.yml
