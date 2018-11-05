@@ -15,8 +15,14 @@ git clone ...
 cp config.bash.example config.bash
 ```
 
-- Change your variables
+- Change your variables inside config.bash
 
+### For Linux
+allow scripts to run
+
+```bash
+chmod +x scripts/*
+```
 
 ## Variables
 
