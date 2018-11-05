@@ -3,12 +3,17 @@
 source setup.sh
 
 foSite="fo-site"
+foSiteApp="$REPOSITORY_DIR/$foSite/app"
+foSiteCache="$foSiteApp/cache"
 
-echo "Removing $REPOSITORY_DIR/$foSite/app/cache/prod"
-${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/cache/prod
-echo "Removing $REPOSITORY_DIR/$foSite/app/cache/dev"
-${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/cache/dev
-echo "Removing $REPOSITORY_DIR/$foSite/app/cache/console"
-${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/cache/console
-echo "Removing $REPOSITORY_DIR/$foSite/app/config/configuration.yml"
-${SUDO_COMMAND} rm -rf ${REPOSITORY_DIR}/${foSite}/app/config/configuration.yml
+echo "Removing $foSiteCache/prod"
+${SUDO_COMMAND} rm -rf ${foSiteCache}/prod
+
+echo "Removing $foSiteCache/dev"
+${SUDO_COMMAND} rm -rf ${foSiteCache}/dev
+
+echo "Removing $foSiteCache/console"
+${SUDO_COMMAND} rm -rf ${foSiteCache}/console
+
+echo "Removing $foSiteApp/config/configuration.yml"
+${SUDO_COMMAND} rm -rf ${foSiteApp}/config/configuration.yml
