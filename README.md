@@ -1,6 +1,8 @@
 # Installation
 
+```bash
 git clone git@github.com:JanGalek/multiplePhp.git
+```
 
 # Requirements
 
